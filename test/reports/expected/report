@@ -1,0 +1,27 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2014-03-28T15:24:27.957Z",
+    "end": "2014-03-28T15:24:29.826Z",
+    "duration": 1869
+  },
+  "tests": [
+    {
+      "title": "should retrieve 10 or more results",
+      "fullTitle": "Google searching should retrieve 10 or more results",
+      "duration": 1857
+    }
+  ],
+  "failures": [],
+  "passes": [
+    {
+      "title": "should retrieve 10 or more results",
+      "fullTitle": "Google searching should retrieve 10 or more results",
+      "duration": 1857
+    }
+  ]
+}

@@ -99,7 +99,7 @@ module.exports = function (grunt) {
 
       mochaCasperjs.on('exit', function (code) {
         if (code === 127) {
-          grunt.fail.warn("Phantomjs isn't installed");
+          grunt.fail.warn('Phantomjs isn\'t installed');
         }
 
         errors += code;
@@ -109,7 +109,7 @@ module.exports = function (grunt) {
 
       // Fail if errors are reported
       if(errors > 0) {
-        grunt.fail.warn(errors + " tests failed");
+        grunt.fail.warn(errors + ' tests failed');
       }
 
       done();

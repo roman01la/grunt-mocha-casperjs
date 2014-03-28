@@ -28,7 +28,10 @@ module.exports = function(grunt) {
 
     // Before generating any new files, remove any previously-created files.
     clean: {
-      tests: ['tmp']
+      tests: [
+      'tmp',
+      'test/reports/actual'
+      ]
     },
 
     // Configuration to be run (and then tested).
@@ -41,33 +44,36 @@ module.exports = function(grunt) {
            * UI: bdd, tdd, exports
            * Slow test threshold, default 75ms
            * Disable colored output, enabled by default
+           * Casper's timeout, should be less than Mocha's
+           * Save reporter output, for json, xunit, etc. type of reporters
            */
 
           // reporter: 'spec',
           // color: false,
           // ui: 'bdd',
           // slow: 1000,
-          timeout: 5000
+          // timeout: 5000,
+          // 'casper-timeout': 5000,
+          // file: 'test/report'
         },
         files: {
-          src: ['test/**/*']
+          src: ['test/test.js']
+        }
+      },
+      output: {
+        options: {
+          reporter: 'json',
+          file: 'test/reports/actual/report'
+        },
+        files: {
+          src: ['test/report.js']
         }
       }
-      // ,
-      // custom_options: {
-      //   options: {
-      //     separator: ': ',
-      //     punctuation: ' !!!'
-      //   },
-      //   files: {
-      //     'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
-      //   }
-      // }
     },
 
     // Unit tests.
     nodeunit: {
-      tests: ['test/*_test.js']
+      tests: ['test/nodeunit/*.js']
     }
 
   });
@@ -77,7 +83,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'mocha_casperjs']);
+  grunt.registerTask('test', ['clean', 'mocha_casperjs', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
