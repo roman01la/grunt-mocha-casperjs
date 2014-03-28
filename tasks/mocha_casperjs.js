@@ -22,15 +22,15 @@ module.exports = function (grunt) {
 
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-      urls: [],
       color: false,
       reporter: 'spec',
       timeout: 30000,
       ui: 'bdd'
     });
 
-    var args = [],
-        urls = options.urls.concat(this.filesSrc),
+    var files = [],
+        args = [],
+        errors = 0,
         done = this.async(),
         binPath = '.bin/mocha-casperjs' + (process.platform === 'win32' ? '.cmd' : ''),
         mocha_casperjs_path = path.join(__dirname, '..', '/node_modules/', binPath);
@@ -58,8 +58,8 @@ module.exports = function (grunt) {
     }
 
     // Loop through the options and add them to args
-    // Omit urls from the options to be passed through
-    _.each(_.omit(options, 'urls', 'color'), function (value, key) {
+    // Omit stuff from the options to be passed through
+    _.each(_.omit(options, 'color'), function (value, key) {
       // Convert to the key to a switch
       var sw = '--' + key + '=';
       // Add the switch and its value
@@ -73,7 +73,19 @@ module.exports = function (grunt) {
       });
     });
 
-    async.eachSeries(urls, function (file, next) {
+    this.files.forEach(function (file) {
+      file.src.filter(function (filepath) {
+        if (!grunt.file.exists(filepath)) {
+          grunt.log.warn('Source file "' + filepath + '" not found.');
+          return false;
+        } else {
+          files.push(filepath);
+          return true;
+        }
+      });
+    });
+
+    async.eachSeries(files, function (file, next) {
 
       var mochaCasperjs = grunt.util.spawn({
         cmd: mocha_casperjs_path,
@@ -85,7 +97,20 @@ module.exports = function (grunt) {
       mochaCasperjs.stdout.pipe(process.stdout);
       mochaCasperjs.stderr.pipe(process.stderr);
 
+      mochaCasperjs.on('exit', function (code) {
+        if (code === 127) {
+          grunt.fail.warn("Phantomjs isn't installed");
+        }
+
+        errors += code;
+      });
+
     }, function() {
+
+      // Fail if errors are reported
+      if(errors > 0) {
+        grunt.fail.warn(errors + " tests failed");
+      }
 
       done();
 
