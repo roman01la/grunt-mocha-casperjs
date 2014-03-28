@@ -69,6 +69,17 @@ Default value: `'false'`
 
 Disable colored output, enabled by default.
 
+#### options['casper-timeout']
+Type: `Number`
+Default value: `'5000'`
+
+Casper's timeout, should be less than Mocha's.
+
+#### options.file
+Type: `String`
+
+Path to output file. Save reporter output, for json, xunit, etc. type of reporters.
+
 ### Usage Examples
 
 #### Basic usage
