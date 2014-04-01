@@ -47,13 +47,13 @@ Any Mocha reporter that can run in the phantomjs or slimerjs environment.
 
 #### options.timeout
 Type: `Number`
-Default value: `'30000'`
+Default value: `30000`
 
 Test-case timeout in milliseconds.
 
 #### options.slow
 Type: `Number`
-Default value: `'75'`
+Default value: `75`
 
 “Slow” test threshold in milliseconds.
 
@@ -65,15 +65,33 @@ Test user-interface (bdd|tdd|exports).
 
 #### options.color
 Type: `Boolean`
-Default value: `'false'`
+Default value: `false`
 
 Disable colored output, enabled by default.
 
-#### options['casper-timeout']
+#### options.casperTimeout
 Type: `Number`
-Default value: `'5000'`
+Default value: `5000`
 
 Casper's timeout, should be less than Mocha's.
+
+#### options.width
+Type: `Number`
+Default value: `400`
+
+Casper's viewport width.
+
+#### options.height
+Type: `Number`
+Default value: `300`
+
+Casper's viewport height.
+
+#### options.userAgent
+Type: `String`
+Default value: Phantom's UA string
+
+Casper's User-Agent string.
 
 #### options.file
 Type: `String`

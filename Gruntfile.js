@@ -55,7 +55,7 @@ module.exports = function(grunt) {
           // ui: 'bdd',
           // slow: 1000,
           // timeout: 5000,
-          casperTimeout: 5000,
+          // casperTimeout: 5000,
           // file: 'test/report',
           width: 1920,
           height: 1080,
