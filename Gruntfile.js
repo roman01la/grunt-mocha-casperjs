@@ -46,6 +46,8 @@ module.exports = function(grunt) {
            * Disable colored output, enabled by default
            * Casper's timeout, should be less than Mocha's
            * Save reporter output, for json, xunit, etc. type of reporters
+           * width, height: PhantomJS viewport size (window.innerWidth, window.innerHeight)
+           * User-Agent string
            */
 
           // reporter: 'spec',
@@ -53,8 +55,11 @@ module.exports = function(grunt) {
           // ui: 'bdd',
           // slow: 1000,
           // timeout: 5000,
-          // 'casper-timeout': 5000,
-          // file: 'test/report'
+          casperTimeout: 5000,
+          // file: 'test/report',
+          width: 1920,
+          height: 1080,
+          userAgent: 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)'
         },
         files: {
           src: ['test/test.js']

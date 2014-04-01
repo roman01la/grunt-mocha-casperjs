@@ -12,6 +12,7 @@ module.exports = function (grunt) {
 
   var async = require('async'),
       path = require('path'),
+      querystring = require('querystring'),
       _ = require('lodash'),
       exists = grunt.file.exists;
 
@@ -60,6 +61,23 @@ module.exports = function (grunt) {
     // Loop through the options and add them to args
     // Omit stuff from the options to be passed through
     _.each(_.omit(options, 'color'), function (value, key) {
+
+      switch (key) {
+        case 'width':
+          key = 'viewport-' + key;
+          break;
+        case 'height':
+          key = 'viewport-' + key;
+          break;
+        case 'userAgent':
+          key = 'user-agent';
+          value = querystring.escape(value);
+          break;
+        case 'casperTimeout':
+          key = 'casper-timeout';
+          break;
+      }
+
       // Convert to the key to a switch
       var sw = '--' + key + '=';
       // Add the switch and its value
