@@ -42,7 +42,7 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "mocha-casperjs": "~0.3.6",
+    "mocha-casperjs": "~0.4.1",
     "async": "~0.6.2",
     "lodash": "~2.4.1",
     "casperjs": "~1.1.0-beta3",
