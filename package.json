@@ -1,6 +1,6 @@
 {
   "name": "grunt-mocha-casperjs",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Grunt wrapper for mocha-casperjs",
   "homepage": "https://github.com/roman01la/grunt-mocha-casperjs",
   "author": {
