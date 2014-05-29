@@ -29,8 +29,7 @@ module.exports = function (grunt) {
       ui: 'bdd'
     });
 
-    var files = [],
-        args = [],
+    var args = [],
         errors = 0,
         done = this.async(),
         binPath = '.bin/mocha-casperjs' + (process.platform === 'win32' ? '.cmd' : ''),
@@ -91,23 +90,11 @@ module.exports = function (grunt) {
       });
     });
 
-    this.files.forEach(function (file) {
-      file.src.filter(function (filepath) {
-        if (!grunt.file.exists(filepath)) {
-          grunt.log.warn('Source file "' + filepath + '" not found.');
-          return false;
-        } else {
-          files.push(filepath);
-          return true;
-        }
-      });
-    });
-
-    async.eachSeries(files, function (file, next) {
+    async.eachSeries(this.files, function (file, next) {
 
       var mochaCasperjs = grunt.util.spawn({
         cmd: mocha_casperjs_path,
-        args: _.flatten([file].concat(args))
+        args: _.flatten(file.src.concat(args))
       }, function (err, result, code) {
         next();
       });
