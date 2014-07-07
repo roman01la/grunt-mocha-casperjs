@@ -26,6 +26,7 @@ module.exports = function (grunt) {
       color: false,
       reporter: 'spec',
       timeout: 30000,
+      concurrent: 1,
       ui: 'bdd'
     });
 
@@ -90,7 +91,7 @@ module.exports = function (grunt) {
       });
     });
 
-    async.eachSeries(this.files, function (file, next) {
+    async.eachLimit(this.files, options.concurrent, function (file, next) {
 
       var mochaCasperjs = grunt.util.spawn({
         cmd: mocha_casperjs_path,
