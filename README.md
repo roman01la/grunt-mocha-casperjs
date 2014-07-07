@@ -102,6 +102,12 @@ Type: `String`
 
 Path to output file. Save reporter output, for json, xunit, etc. type of reporters.
 
+#### options.concurrent
+Type: `Number`
+Default value: `1`
+
+The number of concurrent files to test.
+
 ### Usage Examples
 
 #### Basic usage
