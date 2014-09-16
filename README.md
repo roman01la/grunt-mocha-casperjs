@@ -102,6 +102,17 @@ Type: `String`
 
 Path to output file. Save reporter output, for json, xunit, etc. type of reporters.
 
+### Other options
+
+Other CLI options may be passed to mocha-casperjs by quoting the flag name where needed. E.g., if you want to use your existing mocha/chai/casper-chai, use options like this (coffeescript example):
+```
+    all:
+      options:
+        'mocha-path':       'node_modules/mocha'
+        'chai-path':        'node_modules/chai'
+        'casper-chai-path': 'node_modules/casper-chai'
+```
+
 ### Usage Examples
 
 #### Basic usage
