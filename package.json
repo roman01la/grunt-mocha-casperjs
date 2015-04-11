@@ -1,6 +1,6 @@
 {
   "name": "grunt-mocha-casperjs",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Grunt wrapper for mocha-casperjs",
   "homepage": "https://github.com/roman01la/grunt-mocha-casperjs",
   "author": {
@@ -22,9 +22,6 @@
     "casperjs"
   ],
   "main": "Gruntfile.js",
-  "engines": {
-    "node": ">= 0.8.0"
-  },
   "licenses": [
     {
       "type": "MIT"
@@ -45,10 +42,10 @@
     "async": "~0.9.0",
     "casper-chai": "~0.2.1",
     "casperjs": "~1.1.0-beta3",
-    "chai": "^2.1.2",
-    "lodash": "~3.5.0",
-    "mocha": "^2.2.1",
+    "chai": "^2.2.0",
+    "lodash": "~3.6.0",
+    "mocha": "^2.2.4",
     "mocha-casperjs": "~0.5.3",
-    "phantomjs": "~1.9.8"
+    "phantomjs": "~1.9.16"
   }
 }
