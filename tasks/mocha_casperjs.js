@@ -24,6 +24,7 @@ module.exports = function (grunt) {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
       color: false,
+      ssl: false,
       reporter: 'spec',
       timeout: 30000,
       ui: 'bdd'
@@ -38,6 +39,11 @@ module.exports = function (grunt) {
     // disable color
     if (options.color) {
       args.push('--no-color');
+    }
+
+    // allows ssl
+    if (options.ssl) {
+      args.push('--ssl-protocol=tlsv1');
     }
 
     // Check for a local install of mocha-casperjs to use
@@ -93,8 +99,8 @@ module.exports = function (grunt) {
     async.eachSeries(this.files, function (file, next) {
 
       var mochaCasperjs = grunt.util.spawn({
-        cmd: mocha_casperjs_path,
-        args: _.flatten(file.src.concat(args))
+        args: _.flatten(file.src.concat(args)),
+        cmd: mocha_casperjs_path
       }, function (err, result, code) {
         next();
       });
