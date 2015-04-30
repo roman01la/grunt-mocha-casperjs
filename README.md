@@ -99,6 +99,11 @@ Type: `String`
 
 Path to output file. Save reporter output, for json, xunit, etc. type of reporters.
 
+#### options.ssl
+Type: `Boolean`
+
+SSL flag: --ssl-protocol=tlsv1
+
 ### Other options
 
 Other CLI options may be passed to mocha-casperjs by quoting the flag name where needed. E.g., if you want to use your existing mocha/chai/casper-chai, use options like this (coffeescript example):
@@ -132,6 +137,9 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+- 2015-04-30   v0.1.4.4 Add SSL flag to the the options object
+- 2015-04-11   v0.1.4.3
+- 2015-03-24   v0.1.4.2
 - 2014-12-10   v0.1.4.1
 - 2014-04-19   v0.1.4
 - 2014-03-28   v0.1.3   Add Casper width, height viewport size & UA string options
