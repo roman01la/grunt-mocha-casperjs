@@ -46,6 +46,11 @@ module.exports = function (grunt) {
       args.push('--ssl-protocol=tlsv1');
     }
 
+	// add client scripts
+	if (options.clientScripts) {
+		args.push('--client-scripts=' + options.clientScripts);
+	}
+
     // Check for a local install of mocha-casperjs to use
     if (!exists(mocha_casperjs_path)) {
       var i = module.paths.length,
