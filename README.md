@@ -104,6 +104,11 @@ Type: `Boolean`
 
 SSL flag: --ssl-protocol=tlsv1
 
+#### options.clientScripts
+Type: `String`
+
+Comma-separated list of files to inject on the client every page load
+
 ### Other options
 
 Other CLI options may be passed to mocha-casperjs by quoting the flag name where needed. E.g., if you want to use your existing mocha/chai/casper-chai, use options like this (coffeescript example):
