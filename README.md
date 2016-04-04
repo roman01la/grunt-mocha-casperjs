@@ -1,3 +1,4 @@
+![](https://img.shields.io/badge/maintainer%20needed-!-red.svg)
 [![NPM version](https://badge.fury.io/js/grunt-mocha-casperjs.svg)](http://badge.fury.io/js/grunt-mocha-casperjs)
 [![Build Status](https://travis-ci.org/roman01la/grunt-mocha-casperjs.svg?branch=master)](https://travis-ci.org/roman01la/grunt-mocha-casperjs)
 [![Dependency Status](https://gemnasium.com/roman01la/grunt-mocha-casperjs.svg)](https://gemnasium.com/roman01la/grunt-mocha-casperjs)
