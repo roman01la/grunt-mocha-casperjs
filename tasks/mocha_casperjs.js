@@ -38,11 +38,11 @@ module.exports = function (grunt) {
         mocha_casperjs_path = path.join(__dirname, '..', '/node_modules/', binPath);
 
     // disable color
-    if (options.color) {
+    if (!options.color) {
       args.push('--no-color');
     }
 
-    // disable color
+    // disable SSL Errors
     if (options.ignoresslerrors) {
       args.push('--ignore-ssl-errors=true');
     }
