@@ -25,6 +25,7 @@ module.exports = function (grunt) {
     var options = this.options({
       color: false,
       ssl: false,
+      ignoresslerrors: false,
       reporter: 'spec',
       timeout: 30000,
       ui: 'bdd'
@@ -37,8 +38,13 @@ module.exports = function (grunt) {
         mocha_casperjs_path = path.join(__dirname, '..', '/node_modules/', binPath);
 
     // disable color
-    if (options.color) {
+    if (!options.color) {
       args.push('--no-color');
+    }
+
+    // disable SSL Errors
+    if (options.ignoresslerrors) {
+      args.push('--ignore-ssl-errors=true');
     }
 
     // allows ssl
